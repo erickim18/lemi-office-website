@@ -368,6 +368,7 @@ em { font-style: italic; }
 .plist td sup { position: absolute; margin: -0.1em 0 0 2px; font-size: 0.72em; color: var(--camel); line-height: inherit; }
 .plist td.na { color: rgba(21, 18, 15, 0.3); }
 .legend { margin-top: 22px; }
+.menu__copy { margin-top: 32px; }
 .legend b { font-weight: 500; color: var(--camel); }
 
 /* How to book */
