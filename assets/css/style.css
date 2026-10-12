@@ -110,6 +110,7 @@ em { font-style: italic; }
 .btn--light { border-color: rgba(255, 255, 255, 0.45); color: #fff; }
 .btn--light::before { background: #fff; }
 .btn--light:hover { color: var(--ink); }
+.btn svg { width: 24px; height: 10px; flex: none; }
 
 /* ---------- Header ---------- */
 .hdr {
