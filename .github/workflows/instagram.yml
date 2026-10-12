@@ -1,0 +1,43 @@
+# Adds Lena's #lemijournal Instagram posts to the Lemi Journal.
+# Runs every 3 hours. Her hashtag is the approval, so new posts publish straight away.
+name: Instagram to Journal
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"
+  workflow_dispatch: {}   # "Run workflow" button for a manual check
+
+permissions:
+  contents: write
+
+concurrency:
+  group: journal
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Add new #lemijournal posts
+        env:
+          INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+          IG_USER_ID: ${{ vars.IG_USER_ID }}
+        run: python tools/import_instagram.py
+
+      - name: Publish
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Nothing new."
+            exit 0
+          fi
+          git config user.name "LEMI Journal"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Journal: add Instagram post"
+          git push

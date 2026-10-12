@@ -1,0 +1,5 @@
+# Behind-the-scenes files: keep them off the public site.
+/content/*    /404  404!
+/tools/*      /404  404!
+/.github/*    /404  404!
+/README.md    /404  404!
