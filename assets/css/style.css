@@ -129,6 +129,7 @@ em { font-style: italic; }
 
 .nav { display: flex; align-items: center; gap: clamp(20px, 2.9vw, 52px); font-size: 15px; white-space: nowrap; }
 .nav a:not(.nav__book) { position: relative; padding-block: 6px; }
+@media (max-width: 1099px) { .nav__shop { display: none; } } /* top menu only fits it on wider screens; the footer and phone menu always have it */
 .nav a:not(.nav__book)::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor;
   transform: scaleX(0); transform-origin: right; transition: transform 0.45s var(--ease);
