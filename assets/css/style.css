@@ -110,6 +110,7 @@ em { font-style: italic; }
 .btn--light { border-color: rgba(255, 255, 255, 0.45); color: #fff; }
 .btn--light::before { background: #fff; }
 .btn--light:hover { color: var(--ink); }
+.btn svg { width: 24px; height: 10px; flex: none; }
 
 /* ---------- Header ---------- */
 .hdr {
@@ -128,6 +129,7 @@ em { font-style: italic; }
 
 .nav { display: flex; align-items: center; gap: clamp(20px, 2.9vw, 52px); font-size: 15px; white-space: nowrap; }
 .nav a:not(.nav__book) { position: relative; padding-block: 6px; }
+@media (max-width: 1099px) { .nav__shop { display: none; } } /* top menu only fits it on wider screens; the footer and phone menu always have it */
 .nav a:not(.nav__book)::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor;
   transform: scaleX(0); transform-origin: right; transition: transform 0.45s var(--ease);
@@ -367,7 +369,9 @@ em { font-style: italic; }
 .plist td { width: clamp(72px, 9.4vw, 148px); padding: 24px 0 21px; text-align: right; font-size: 15.5px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .plist td sup { position: absolute; margin: -0.1em 0 0 2px; font-size: 0.72em; color: var(--camel); line-height: inherit; }
 .plist td.na { color: rgba(21, 18, 15, 0.3); }
+.plist--teams td { width: clamp(116px, 12vw, 170px); }
 .legend { margin-top: 22px; }
+.menu__copy { margin-top: 32px; }
 .legend b { font-weight: 500; color: var(--camel); }
 
 /* How to book */
@@ -647,6 +651,7 @@ figure:hover > .team__im img { transform: scale(1.035); }
   .ask > div { grid-template-columns: 1fr; }
   .plist tbody th { padding-right: 12px; }
   .plist td { width: 62px; font-size: 14.5px; }
+  .plist--teams td { width: 92px; }
   .plist thead th { letter-spacing: 0.14em; font-size: 9.5px; }
   .plist__x { font-size: 13px; }
   .ftr__col:last-of-type { grid-column: 1 / -1; }
